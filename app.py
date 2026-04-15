@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import joblib
+from sklearn import joblib
 import numpy as np
 import os
 
