@@ -43,19 +43,19 @@ if os.path.exists(model_path):
     with p1:
         st.write("**Race 1 (Most Recent)**")
         t1 = st.text_input("Finishing Time (e.g. 1:10.2)", value="1:09.8", key="t1")
-        d1 = st.selectbox("Race Distance (m)", [1000, 1200, 1400, 1600, 1650, 1800, 2000, 2200, 2400])
+        d1 = st.selectbox("Race Distance (m)", [1000, 1200, 1400, 1600, 1650, 1800, 2000, 2200, 2400], index=1, key="d1")
         res1 = st.checkbox("Finished Top 3?", key="r1")
         
     with p2:
         st.write("**Race 2**")
         t2 = st.text_input("Finishing Time (e.g. 1:10.5)", value="1:10.1", key="t2")
-        d2 = st.selectbox("Race Distance (m)", [1000, 1200, 1400, 1600, 1650, 1800, 2000, 2200, 2400])
+        d2 = st.selectbox("Race Distance (m)", [1000, 1200, 1400, 1600, 1650, 1800, 2000, 2200, 2400], index=1, key="d2")
         res2 = st.checkbox("Finished Top 3?", key="r2")
         
     with p3:
         st.write("**Race 3**")
         t3 = st.text_input("Finishing Time (e.g. 1:09.9)", value="1:10.4", key="t3")
-        d3 = st.selectbox("Race Distance (m)", [1000, 1200, 1400, 1600, 1650, 1800, 2000, 2200, 2400])
+        d3 = st.selectbox("Race Distance (m)", [1000, 1200, 1400, 1600, 1650, 1800, 2000, 2200, 2400], index=1, key="d3")
         res3 = st.checkbox("Finished Top 3?", key="r3")
 
     if st.button("Predict Result"):
