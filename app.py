@@ -17,7 +17,7 @@ def calculate_single_speed(time_str, distance):
         return 0
 
 st.set_page_config(page_title="HKJC Prediction", layout="wide")
-st.title("🏇 HKJC Smart Predictor")
+st.title("🏇 HKJC Horse Racing Results Predictor")
 
 model_path = 'random_forest_model.pkl'
 
@@ -35,27 +35,27 @@ if os.path.exists(model_path):
         class_move = st.selectbox("Class Change", options=[-1, 0, 1], format_func=lambda x: "Down" if x==-1 else ("Up" if x==1 else "Same"))
 
     st.markdown("---")
-    st.subheader("2. Past 3 Runs (for Speed & Consistency)")
+    st.subheader("2. Information on Results of Past 3 Runs")
     
     # Create three columns for the three past races
     p1, p2, p3 = st.columns(3)
     
     with p1:
         st.write("**Race 1 (Most Recent)**")
-        t1 = st.text_input("Time (e.g. 1:10.2)", value="1:09.8", key="t1")
-        d1 = st.number_input("Dist (m)", value=1200, key="d1")
+        t1 = st.text_input("Finishing Time (e.g. 1:10.2)", value="1:09.8", key="t1")
+        d1 = st.selectbox("Race Distance (m)", [1000, 1200, 1400, 1600, 1650, 1800, 2000, 2200, 2400])
         res1 = st.checkbox("Finished Top 3?", key="r1")
         
     with p2:
         st.write("**Race 2**")
-        t2 = st.text_input("Time (e.g. 1:10.5)", value="1:10.1", key="t2")
-        d2 = st.number_input("Dist (m)", value=1200, key="d2")
+        t2 = st.text_input("Finishing Time (e.g. 1:10.5)", value="1:10.1", key="t2")
+        d2 = st.selectbox("Race Distance (m)", [1000, 1200, 1400, 1600, 1650, 1800, 2000, 2200, 2400])
         res2 = st.checkbox("Finished Top 3?", key="r2")
         
     with p3:
         st.write("**Race 3**")
-        t3 = st.text_input("Time (e.g. 1:09.9)", value="1:10.4", key="t3")
-        d3 = st.number_input("Dist (m)", value=1200, key="d3")
+        t3 = st.text_input("Finishing Time (e.g. 1:09.9)", value="1:10.4", key="t3")
+        d3 = st.selectbox("Race Distance (m)", [1000, 1200, 1400, 1600, 1650, 1800, 2000, 2200, 2400])
         res3 = st.checkbox("Finished Top 3?", key="r3")
 
     if st.button("Predict Result"):
